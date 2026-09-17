@@ -39,16 +39,16 @@ t = np.linspace(0,23,24)
 dag = df.loc["2023-03-2"]
 
 
-L_0 = 1
-A_1 = 1
+L_0 = 15750
+A_1 = 3106
 mu_1 = 8
-sigma_1 = 1
-A_2 = 1
-mu_2 = 1
-sigma_2 = 1 
-A_0 = 1
-mu_0 = 1 
-sigma_0 = 1
+sigma_1 = 2.5
+A_2 = 1800
+mu_2 = 19
+sigma_2 = 4 
+A_0 = -280
+mu_0 = 3 
+sigma_0 = 1.5
 
 
 morning_peak =  A_1*np.exp(-((t-mu_1)**2/(2*sigma_1**2)))
