@@ -39,6 +39,18 @@ t = np.linspace(0,23,24)
 dag = df.loc["2023-03-2"]
 
 
+#Døgnprofil
+plt.figure()
+plt.plot(t, dag["Consumption"], label="Observerte data")
+plt.title("Døgnprofil")
+plt.xlabel("Tid")
+plt.ylabel("Effekt")
+plt.grid()
+plt.legend()
+plt.savefig("Dognprofil 2023-03-2")
+plt.show()
+
+#Parameter verdier
 L_0 = 15750
 A_1 = 3106
 mu_1 = 8
@@ -51,20 +63,31 @@ mu_0 = 3
 sigma_0 = 1.5
 
 
+
 morning_peak =  A_1*np.exp(-((t-mu_1)**2/(2*sigma_1**2)))
 evening_peak =  A_2*np.exp(-((t-mu_2)**2/(2*sigma_2**2)))
 night_peak =  A_0*np.exp(-((t-mu_0)**2/(2*sigma_0**2)))
 L = L_0 + night_peak +morning_peak + evening_peak
-plt.plot(t,dag["Consumption"], label = "dag")
-plt.plot(t,L_0 +morning_peak, label="Morning_peak-modell")
-plt.plot(t, L_0 +night_peak, label = "night_peak-modell")
-plt.plot(t, L_0 +evening_peak, label="evening_peak-modell" )
-#plt.plot(t,L)
+
+
+plt.figure()
+plt.title("Modellert kurve")
+plt.plot(t,L,label="Modellert kurve")
+plt.xlabel("Tid")
+plt.ylabel("Effekt")
+plt.grid()
 plt.legend()
+#plt.savefig("Modellert kurve")
 plt.show()
 
 
 plt.figure()
-plt.plot(t,dag["Consumption"], label = "dag")
-plt.plot(t, L)
+plt.title("Observert data og modelert kurve")
+plt.plot(t,dag["Consumption"], label="Observerte data")
+plt.plot(t,L, label="Modellert kurve")
+plt.xlabel("Tid")
+plt.ylabel("Effekt")
+plt.grid()
+plt.legend()
+plt.savefig("Modellert kurve over observert data")
 plt.show()
