@@ -47,7 +47,7 @@ plt.xlabel("Tid")
 plt.ylabel("Effekt")
 plt.grid()
 plt.legend()
-plt.savefig("Dognprofil 2023-03-2")
+#plt.savefig("Dognprofil 2023-03-2")
 plt.show()
 
 #Parameter verdier
